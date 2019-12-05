@@ -1,8 +1,20 @@
-from bottle import route, run, template, error
+from bottle import route, run, template, get, static_file, error
 
 @route('/')
 def index():
-    return template('./public/html/index.html')
+    return template('./views/index.html')
+
+@get("/static/css/<filepath:re:.*\.css>")
+def css(filepath):
+    return static_file(filepath, root="static/css")
+
+@get("/static/js/<filepath:re:.*\.js>")
+def js(filepath):
+    return static_file(filepath, root="static/js")
+
+@get("/static/img/<filepath:re:.*\.(jpg|png|svg|ico)>")
+def img(filepath):
+    return static_file(filepath, root="static/img")
 
 @error(404)
 def error404(error):
