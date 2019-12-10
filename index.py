@@ -1,8 +1,14 @@
 from bottle import route, run, template, get, static_file, error
+from src.DBAccess import DBAccess
+import pprint
 
 @route('/')
 def index():
     return template('./views/index.html')
+
+@route('/music')
+def db():
+    return pprint.pformat(DBAccess().get_music_list())
 
 @get("/static/css/<filepath:re:.*\.css>")
 def css(filepath):
