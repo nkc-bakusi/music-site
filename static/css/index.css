@@ -1,3 +1,48 @@
 body {
     background-color: darkgrey;
+<<<<<<< HEAD
 }
+=======
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0px auto;
+    /*padding: 1.25em;*/
+}
+
+header{
+    background-color: #fff;
+}
+
+#greeting{
+    background-color: #555;
+}
+
+.song{
+    padding: 0.2em;
+    border: solid 1px #f64;
+    background-color: #FFF;
+	overflow:hidden; /*省略する*/
+	white-space:nowrap;
+	text-overflow:ellipsis;
+
+}
+
+
+.songName{
+    width: 40%;
+}
+
+.songArtist{
+    width: 30%;
+}
+
+.songLength{
+    width: 20%;
+}
+
+footer{
+    background-color: #fff;
+    padding: 3em 0px;
+    text-align: center;
+}
+>>>>>>> 2e72220... test comit
