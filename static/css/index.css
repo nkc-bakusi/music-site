@@ -1,8 +1,4 @@
 body {
-    background-color: darkgrey;
-<<<<<<< HEAD
-}
-=======
     box-sizing: border-box;
     max-width: 1200px;
     margin: 0px auto;
@@ -45,4 +41,3 @@ footer{
     padding: 3em 0px;
     text-align: center;
 }
->>>>>>> 2e72220... test comit
