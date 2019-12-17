@@ -23,6 +23,13 @@ header{
 
 }
 
+.song span{
+    display:inline-block;
+}
+
+.songIcon{
+    width: 1em;
+}
 
 .songName{
     width: 40%;
