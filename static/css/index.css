@@ -40,7 +40,7 @@ header{
     transition-duration:0.2s;
     padding: 0.5em 0.2em;
     border-bottom: solid 1px #aaa;
-    background-color: #FFF;
+    background-color: #FFFFFF;
 	overflow:hidden; /*省略する*/
 	white-space:nowrap;
     text-overflow:ellipsis;
