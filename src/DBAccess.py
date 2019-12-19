@@ -7,7 +7,7 @@ class DBAccess:
         self.connection = MySQLdb.connect(
             host='localhost',
             user='root',
-            db='music',
+            db='music_site',
             # passeord='',
             charset='utf8'
         )
