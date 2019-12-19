@@ -15,7 +15,7 @@ class DBAccess:
 
     def get_music_list(self) :
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM music"+ limit)
+        cursor.execute("SELECT * FROM music ORDER BY RAND() LIMIT 10")
         itme_list = []
         for row in cursor:
             itme_list.append({
