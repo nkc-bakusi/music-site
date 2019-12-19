@@ -1,28 +1,42 @@
-from bottle import route, run, template, get, static_file, error
+from bottle import Bottle, route, run, template, get, static_file, error
 from src.DBAccess import DBAccess
 import pprint
 
-@route('/')
+app = Bottle()
+
+@app.route('/')
 def index():
     return template('./views/index.html')
 
-@route('/music', method='GET')
+@app.route('/detail')
+def index():
+    return template('./views/index.html')
+
+@app.route('/api/music', method='GET')
 def db():
     return pprint.pformat(DBAccess().get_music_list())
 
-@get("/static/css/<filepath:re:.*\.css>")
+@app.route('/api/music/bpm', method='GET')
+def db():
+    return pprint.pformat(DBAccess().get_music_list())
+
+@app.route('/api/music/play_time', method='GET')
+def db():
+    return pprint.pformat(DBAccess().get_music_list())
+
+@app.get("/static/css/<filepath:re:.*\.css>")
 def css(filepath):
     return static_file(filepath, root="static/css")
 
-@get("/static/js/<filepath:re:.*\.js>")
+@app.get("/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return static_file(filepath, root="static/js")
 
-@get("/static/img/<filepath:re:.*\.(jpg|png|svg|ico)>")
+@app.get("/static/img/<filepath:re:.*\.(jpg|png|svg|ico)>")
 def img(filepath):
     return static_file(filepath, root="static/img")
 
-@error(404)
+@app.error(404)
 def error404(error):
     return '<h1>404 Page Not found'
 

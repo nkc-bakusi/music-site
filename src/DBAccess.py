@@ -1,6 +1,8 @@
 import MySQLdb
 
 class DBAccess:
+    sql_limit = "LIMIT 1, 10"
+
     def __init__(self) :
         self.connection = MySQLdb.connect(
             host='localhost',
