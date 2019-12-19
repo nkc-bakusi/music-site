@@ -5,8 +5,19 @@ body {
     /*padding: 1.25em;*/
 }
 
+
+a{
+	transition-duration:0.3s;
+}
+
 header{
     background-color: #fff;
+    background: #0a0a0a;
+    background: -moz-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a0a0a), color-stop(50%, #3d3d3d), to(#0a0a0a));
+    background: -webkit-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: -o-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
 }
 
 #greeting{
@@ -14,17 +25,29 @@ header{
 }
 
 .song{
+    transition-duration:0.2s;
     padding: 0.2em;
     border: solid 1px #f64;
     background-color: #FFF;
 	overflow:hidden; /*省略する*/
 	white-space:nowrap;
-	text-overflow:ellipsis;
+    text-overflow:ellipsis;
+}
 
+#songTitle{
+    background-color: #f64;
+}
+
+.song:hover{
+    background-color: #f64;
+    
 }
 
 .song span{
     display:inline-block;
+	overflow:hidden; /*...*/
+	white-space:nowrap;
+	text-overflow:ellipsis;
 }
 
 .songIcon{
