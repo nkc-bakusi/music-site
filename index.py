@@ -6,7 +6,7 @@ import pprint
 def index():
     return template('./views/index.html')
 
-@route('/music')
+@route('/music', method='GET')
 def db():
     return pprint.pformat(DBAccess().get_music_list())
 

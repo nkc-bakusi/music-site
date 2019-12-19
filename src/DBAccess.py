@@ -5,7 +5,7 @@ class DBAccess:
         self.connection = MySQLdb.connect(
             host='localhost',
             user='root',
-            db='music_site',
+            db='music',
             # passeord='',
             charset='utf8'
         )
@@ -17,7 +17,10 @@ class DBAccess:
         for row in cursor:
             itme_list.append({
                 "id": row[0],
-                "name": row[1]
+                "song_name": row[1],
+                "bpm": row[2],
+                "artist_name": row[3],
+                "play_time": row[4]
             })
         return itme_list
 
