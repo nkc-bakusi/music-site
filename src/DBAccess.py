@@ -1,9 +1,10 @@
 import MySQLdb
 
 class DBAccess:
+
     sql_limit = "LIMIT 1, 10"
 
-    def __init__(self) :
+    def __init__(self):
         self.connection = MySQLdb.connect(
             host='localhost',
             user='root',
@@ -12,9 +13,9 @@ class DBAccess:
             charset='utf8'
         )
 
-    def get_music_list(self) :
+    def get_music_list(self):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM music")
+        cursor.execute("SELECT * FROM music ORDER BY RAND() LIMIT 10")
         itme_list = []
         for row in cursor:
             itme_list.append({
@@ -25,4 +26,3 @@ class DBAccess:
                 "play_time": row[4]
             })
         return itme_list
-
