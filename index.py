@@ -1,5 +1,6 @@
-from bottle import Bottle, route, run, template, get, static_file, error
+from bottle import Bottle, route, run, template, get, static_file, error, request
 from src.DBAccess import DBAccess
+from distutils.util import strtobool
 import pprint
 
 # メイン画面
@@ -15,7 +16,11 @@ def index():
 # ここからWEBAPI
 @route('/api/music', method='GET')
 def db():
-    return pprint.pformat(DBAccess().get_music_list())
+    is_first_access = strtobool(request.query.get('first'))
+    if (is_first_access) :
+        return pprint.pformat(DBAccess().get_music_list())
+    else :
+        return pprint.pformat(DBAccess().get_music_list())
 
 @route('/api/music/bpm', method='GET')
 def db():

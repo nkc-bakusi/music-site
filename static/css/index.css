@@ -1,3 +1,85 @@
 body {
-    background-color: darkgrey;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0px auto;
+    /*padding: 1.25em;*/
+}
+
+a{
+	transition-duration:0.3s;
+}
+
+p{
+    margin: 0px;
+    padding: 1em;
+}
+
+h1{
+    margin: 0px;
+    padding: 0em 1rem;
+    font-size: 3em;
+    color: #fff;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+header{
+    padding: 1em;
+    background: #0a0a0a;
+    background: -moz-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a0a0a), color-stop(50%, #3d3d3d), to(#0a0a0a));
+    background: -webkit-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: -o-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+    background: linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+}
+
+#greeting{
+    
+}
+
+.song{
+    transition-duration:0.2s;
+    padding: 0.5em 0.2em;
+    border-bottom: solid 1px #aaa;
+    background-color: #FFFFFF;
+	overflow:hidden; /*省略する*/
+	white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+#songTitle{
+    background-color: #f64;
+}
+
+.song:hover{
+    background-color: #f64;
+    
+}
+
+.song span{
+    display:inline-block;
+	overflow:hidden; /*...*/
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.songIcon{
+    width: 1em;
+}
+
+.songName{
+    width: 40%;
+}
+
+.songArtist{
+    width: 30%;
+}
+
+.songLength{
+    width: 20%;
+}
+
+footer{
+    background-color: #fff;
+    padding: 3em 0px;
+    text-align: center;
 }
