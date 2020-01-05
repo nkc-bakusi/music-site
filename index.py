@@ -9,9 +9,9 @@ def index():
     return template('./views/index.html')
 
 # 詳細画面
-@route('/detail')
-def index():
-    return template('./views/index.html')
+@route('/detail/<music_id>')
+def index(music_id):
+    return music_id
 
 # ここからWEBAPI
 @route('/api/music', method='GET')
