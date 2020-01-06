@@ -8,7 +8,7 @@ class DBAccess:
         self.connection = MySQLdb.connect(
             host='localhost',
             user='root',
-            db='music_site',
+            db='music',
             # passeord='',
             charset='utf8'
         )
@@ -16,6 +16,20 @@ class DBAccess:
     def get_music_list(self):
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM music ORDER BY RAND() LIMIT 10")
+        itme_list = []
+        for row in cursor:
+            itme_list.append({
+                "id": row[0],
+                "song_name": row[1],
+                "bpm": row[2],
+                "artist_name": row[3],
+                "play_time": row[4]
+            })
+        return itme_list
+
+    def get_detail_music(self, music_id):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM music WHERE id = %s", music_id)
         itme_list = []
         for row in cursor:
             itme_list.append({
