@@ -3,6 +3,9 @@ body {
     max-width: 1200px;
     margin: 0px auto;
     /*padding: 1.25em;*/
+    background-color: #111111;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #222222), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #222222),color-stop(.75, #222222), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 4px 4px;
 }
 
 a{
@@ -18,52 +21,60 @@ h1{
     margin: 0px;
     padding: 0em 1rem;
     font-size: 3em;
-    color: #fff;
+    color: #eeeeee;
     font-family: 'Bowlby One SC', cursive;
+    text-shadow:3px 3px 5px rgb(116, 65, 139);
 }
 
 header{
-    padding: 1em;
-    background: #0a0a0a;
-    background: -moz-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(#0a0a0a), color-stop(50%, #3d3d3d), to(#0a0a0a));
-    background: -webkit-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
-    background: -o-linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
-    background: linear-gradient( #0a0a0a 0%, #3d3d3d 50%, #0a0a0a 100%);
+
 }
 
 #greeting{
+    color: #eeeeee;
+    padding:1rem 0px;
     
 }
 
 .song{
-    transition-duration:0.2s;
+    color: #aaaaaa;
+    transition-duration:0.1s;
     padding: 0.5em 0.2em;
-    border-bottom: solid 1px #aaa;
-    background-color: #FFFFFF;
+    border-bottom: solid 1px #aaaaaa;
 	overflow:hidden; /*省略する*/
 	white-space:nowrap;
     text-overflow:ellipsis;
 }
 
 #songTitle{
-    background-color: #f64;
+    background-color: rgb(116, 65, 139);
+    color :#eeeeee;
 }
 
-.song:hover{
-    background-color: #f64;
-    
+#songTitle .songIcon::before{
+    color: rgb(116, 65, 139);
 }
 
 .song span{
+
     display:inline-block;
 	overflow:hidden; /*...*/
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
 
-.songIcon{
-    width: 1em;
+.song:hover{
+    background-color: #444444;
+    color: #eeeeee;  
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #222222), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #222222),color-stop(.75, #222222), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 4px 4px;
+ 
+}
+
+
+.songIcon::before{
+    content: "▶";
+    color: #111111;
 }
 
 .songName{
@@ -79,7 +90,9 @@ header{
 }
 
 footer{
-    background-color: #fff;
+    color:#eeeeee;
+    /*background: linear-gradient( #444444 0%, #111111 100%);*/
+    text-shadow:1px 1px 2px  rgb(116, 65, 139);
     padding: 3em 0px;
     text-align: center;
 }
