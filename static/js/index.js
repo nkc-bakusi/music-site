@@ -5,7 +5,7 @@ function getMusicData(){
     var first = true;
     $(function(){
         $.ajax({
-            url: '../api/music.py',//送信先
+            url: 'api/music',//送信先
             type: 'GET',//送信方法
             datatype: 'json',//受け取りデータの種類
             data:{
@@ -13,10 +13,12 @@ function getMusicData(){
             }
         })
         .done(function(response){
-            $('.song').not('#songTitle').remove();
-            Object.keys(response.music_data).forEach(function(key){
+            console.log(response);
+            //$('.song').not('#songTitle').remove();
+            Object.keys(response).forEach(function(key){
                 var val = this[key];
                 var dom = $('.song').not('#songTitle').first().clone();
+                console.log(val.play_time);
                     //dom.find('.songIcon').text(val.songIcon);
                     dom.find('.songName').text(val.songName);
                     dom.find('.songArtist').text(val.songArtist);
