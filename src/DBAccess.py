@@ -15,15 +15,15 @@ class DBAccess:
 
     def get_music_list(self):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM music ORDER BY RAND() LIMIT 10")
+        cursor.execute("SELECT id, song_name, artist_name, play_time, CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division FROM music ORDER BY RAND() LIMIT 10")
         itme_list = []
         for row in cursor:
             itme_list.append({
                 "id": row[0],
                 "song_name": row[1],
-                "bpm": row[2],
-                "artist_name": row[3],
-                "play_time": row[4]
+                "artist_name": row[2],
+                "play_time": row[3],
+                "bpm_division": row[4]
             })
         return itme_list
 
