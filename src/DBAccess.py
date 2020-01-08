@@ -23,21 +23,21 @@ class DBAccess:
                 "id": row[0],
                 "song_name": row[1],
                 "artist_name": row[2],
-                "play_time": row[3],
+                "play_time": str(row[3]),
                 "bpm_division": row[4]
             })
         return {"data" : itme_list}
 
     def get_detail_music(self, music_id):
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM music WHERE id = %s", music_id)
+        cursor.execute("SELECT id, song_name, artist_name, play_time, bpm FROM music WHERE id = %s", music_id)
         itme_list = []
         for row in cursor:
             itme_list.append({
                 "id": row[0],
                 "song_name": row[1],
-                "bpm": row[2],
-                "artist_name": row[3],
-                "play_time": row[4]
+                "artist_name": row[2],
+                "play_time": str(row[3]),
+                "bpm": row[4]
             })
         return {"data" : itme_list}
