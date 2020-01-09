@@ -13,16 +13,16 @@ function getMusicData(){
             }
         })
         .done(function(response){
-            console.log(response);
-            //$('.song').not('#songTitle').remove();
-            Object.keys(response).forEach(function(key){
+            console.log(response.data);
+            $('.song').not('#songTitle').remove();
+            Object.keys(response.data).forEach(function(key){
                 var val = this[key];
                 var dom = $('.song').not('#songTitle').first().clone();
                 console.log(val.play_time);
                     //dom.find('.songIcon').text(val.songIcon);
-                    dom.find('.songName').text(val.songName);
-                    dom.find('.songArtist').text(val.songArtist);
-                    dom.find('.songLength').text(val.songLength);
+                    dom.find('.songName').text(val.song_name);
+                    dom.find('.songArtist').text(val.artist_name);
+                    dom.find('.songLength').text(val.play_time);
                     dom.show();
                     $('#songTitle').after(dom);
             },response.music_data)
