@@ -16,11 +16,10 @@ function getMusicData(){
             const songdata =JSON.parse(response);
             $('tbody .song').not(':first').remove();
             console.log(songdata.data);
+            $('.selectMusic').text('初めてのhogehogehogehoge');
             Object.keys(songdata.data).forEach(function(key){
                 var val = this[key];
-                console.log(val);
                 var dom = $('tbody .song').first().clone();
-                    //dom.find('.songIcon').text(val.songIcon);
                     dom.find('.songName').text(val.song_name);
                     dom.find('.songArtist').text(val.artist_name);
                     dom.find('.songLength').text(val.play_time);
