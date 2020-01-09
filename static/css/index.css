@@ -55,7 +55,15 @@ header{
     color: rgb(116, 65, 139);
 }
 
-.song span{
+.song th{
+
+    display:inline-block;
+	overflow:hidden; /*...*/
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.song td{
 
     display:inline-block;
 	overflow:hidden; /*...*/
