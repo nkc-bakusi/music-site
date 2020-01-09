@@ -8,6 +8,11 @@ body {
     -webkit-background-size: 4px 4px;
 }
 
+::selection {
+    background: rgb(116, 65, 139);
+    color: #fff;
+}
+
 a{
 	transition-duration:0.3s;
 }
@@ -39,11 +44,13 @@ header{
 .song{
     color: #aaaaaa;
     transition-duration:0.1s;
+    margin: auto 0.2em;
     padding: 0.5em 0.2em;
     border-bottom: solid 1px #aaaaaa;
 	overflow:hidden; /*省略する*/
 	white-space:nowrap;
     text-overflow:ellipsis;
+    padding-left: 1.2em;
 }
 
 #songTitle{
@@ -51,16 +58,24 @@ header{
     color :#eeeeee;
 }
 
-#songTitle .songIcon::before{
+#songTitle:hover::before{
+    content: "";
     color: rgb(116, 65, 139);
 }
 
-.song span{
+#songTitle:hover{
+    background-color:  rgb(116, 65, 139);
+    color: #eeeeee;  
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25,  rgb(116, 65, 139)), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5,  rgb(116, 65, 139)),color-stop(.75,  rgb(116, 65, 139)), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 4px 4px;
+    padding-left: 1.2rem;
+}
 
+.song span{
     display:inline-block;
 	overflow:hidden; /*...*/
 	white-space:nowrap;
-	text-overflow:ellipsis;
+    text-overflow:ellipsis;
 }
 
 .song:hover{
@@ -68,13 +83,13 @@ header{
     color: #eeeeee;  
     background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #222222), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #222222),color-stop(.75, #222222), color-stop(.75, transparent),to(transparent));
     -webkit-background-size: 4px 4px;
- 
+    padding-left: 0px;
 }
 
 
-.songIcon::before{
+.song:hover::before{
     content: "▶";
-    color: #111111;
+    color: #eeeeee;
 }
 
 .songName{
