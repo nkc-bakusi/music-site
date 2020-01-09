@@ -13,19 +13,20 @@ function getMusicData(){
             }
         })
         .done(function(response){
-            console.log(response.data);
-            $('.song').not('#songTitle').remove();
-            Object.keys(response.data).forEach(function(key){
+            const songdata =JSON.parse(response);
+            $('tbody .song').not(':first').remove();
+            console.log(songdata.data);
+            Object.keys(songdata.data).forEach(function(key){
                 var val = this[key];
-                var dom = $('.song').not('#songTitle').first().clone();
-                console.log(val.play_time);
+                console.log(val);
+                var dom = $('tbody .song').first().clone();
                     //dom.find('.songIcon').text(val.songIcon);
                     dom.find('.songName').text(val.song_name);
                     dom.find('.songArtist').text(val.artist_name);
                     dom.find('.songLength').text(val.play_time);
                     dom.show();
-                    $('#songTitle').after(dom);
-            },response.music_data)
+                    $('tbody').after(dom);
+            },songdata.data)
         })
         .fail(function(response){
             console.log('通信失敗');
