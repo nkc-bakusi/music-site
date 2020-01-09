@@ -9,8 +9,8 @@ body {
 }
 
 ::selection {
-    background: rgb(116, 65, 139);
-    color: #fff;
+    background: #eeeeee;
+    color: #111111;
 }
 
 a{
@@ -59,8 +59,7 @@ header{
 }
 
 #songTitle:hover::before{
-    content: "";
-    color: rgb(116, 65, 139);
+    content: none;
 }
 
 #songTitle:hover{
@@ -68,7 +67,7 @@ header{
     color: #eeeeee;  
     background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25,  rgb(116, 65, 139)), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5,  rgb(116, 65, 139)),color-stop(.75,  rgb(116, 65, 139)), color-stop(.75, transparent),to(transparent));
     -webkit-background-size: 4px 4px;
-    padding-left: 1.2rem;
+    padding-left: 1.2em;
 }
 
 .song span{
@@ -88,7 +87,9 @@ header{
 
 
 .song:hover::before{
-    content: "▶";
+    content: "▲";
+    display: inline-block;
+    transform: rotateZ(90deg);
     color: #eeeeee;
 }
 
