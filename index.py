@@ -11,7 +11,7 @@ def index():
 # 詳細画面
 @route('/detail/<music_id>')
 def detail(music_id):
-    return pprint.pformat(DBAccess().get_detail_music(music_id))
+    return template('./views/detail.html', music_data=DBAccess().get_detail_music(music_id))
 
 # ここからWEBAPI
 @route('/api/music', method='GET')
