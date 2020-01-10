@@ -18,7 +18,7 @@ def detail(music_id):
 def db():
     is_first_access = strtobool(request.query.get('first'))
     if (is_first_access) :
-        return pprint.pformat(DBAccess().get_music_list())
+        return DBAccess().get_music_list()
     else :
         return pprint.pformat(DBAccess().get_music_list())
 
