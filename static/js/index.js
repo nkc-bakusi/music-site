@@ -13,19 +13,19 @@ function getMusicData(){
             }
         })
         .done(function(response){
-            const songdata =JSON.parse(response);
-            $('tbody .song').not(':first').remove();
-            console.log(songdata.data);
-            $('.selectMusic').text('初めてのhogehogehogehoge');
-            Object.keys(songdata.data).forEach(function(key){
+            console.log(response);
+            //$('.song').not('#songTitle').remove();
+            Object.keys(response).forEach(function(key){
                 var val = this[key];
-                var dom = $('tbody .song').first().clone();
-                    dom.find('.songName').text(val.song_name);
-                    dom.find('.songArtist').text(val.artist_name);
-                    dom.find('.songLength').text(val.play_time);
+                var dom = $('.song').not('#songTitle').first().clone();
+                console.log(val.play_time);
+                    //dom.find('.songIcon').text(val.songIcon);
+                    dom.find('.songName').text(val.songName);
+                    dom.find('.songArtist').text(val.songArtist);
+                    dom.find('.songLength').text(val.songLength);
                     dom.show();
-                    $('tbody').after(dom);
-            },songdata.data)
+                    $('#songTitle').after(dom);
+            },response.music_data)
         })
         .fail(function(response){
             console.log('通信失敗');
