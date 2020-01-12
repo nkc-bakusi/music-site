@@ -24,6 +24,8 @@ function getMusicData(){
                     dom.find('.songLength').text(val.play_time);
                     dom.show();
                     $('#songTitle').after(dom);
+
+                    add_storage_event(dom, val);
             },songdata.data)
         })
         .fail(function(response){
