@@ -25,6 +25,7 @@ function getMusicData(){
                     dom.show();
                     $('#songTitle').after(dom);
             },songdata.data)
+            $('.selectGenre').text('初回訪問の文言　');
         })
         .fail(function(response){
             console.log('通信失敗');
