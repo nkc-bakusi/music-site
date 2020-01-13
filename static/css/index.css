@@ -53,6 +53,11 @@ header{
     padding-left: 1.2em;
 }
 
+.song a {
+    text-decoration: none;
+    color :#eeeeee;
+}
+
 #songTitle{
     background-color: rgb(116, 65, 139);
     color :#eeeeee;
