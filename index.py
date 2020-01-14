@@ -17,8 +17,14 @@ def detail(music_id):
 @route('/api/music', method='GET')
 def db():
     is_first_access = strtobool(request.query.get('first'))
+    bpm = strtobool(request.query.get('bpm'))
+    playtime = strtobool(request.query.get('play_time'))
     if (is_first_access) :
         return DBAccess().get_music_list()
+    else if (bpm) :
+        return DBAccess().get_music_list_bpm(bpm)
+    else if (playtime) :
+        return DBAccess().get_music_list_playtime(playtime)
     else :
         return pprint.pformat(DBAccess().get_music_list())
 
