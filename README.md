@@ -11,3 +11,13 @@
     ```
     /views/
     ```
+
+## local storageの話...
+## 技術的な話
+* [MDNのサイト](https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage)
+## 内容物
+* データ内容
+    ```
+    {"bpm_division":[0,14,63,null],"play_time_division":[0,0,0]}
+    ```
+* keyがsearch_dataです
