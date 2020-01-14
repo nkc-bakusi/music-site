@@ -16,19 +16,21 @@ def detail(music_id):
 # ここからWEBAPI
 @route('/api/music', method='GET')
 def db():
-    is_first_access = strtobool(request.query.get('first'))
-    if (is_first_access) :
+    is_first_access = request.query.get('search_condition')
+    if (is_first_access == 'fast') :
         return DBAccess().get_music_list()
-    else :
-        return pprint.pformat(DBAccess().get_music_list())
+    elif (is_first_access == 'bpm') :
+        return DBAccess().get_music_list()
+    elif (is_first_access == 'play_time') :
+        return DBAccess().get_music_list()
 
-@route('/api/music/bpm', method='GET')
-def db():
-    return pprint.pformat(DBAccess().get_music_list())
+# @route('/api/music/bpm', method='GET')
+# def db():
+#     return pprint.pformat(DBAccess().get_music_list())
 
-@route('/api/music/play_time', method='GET')
-def db():
-    return pprint.pformat(DBAccess().get_music_list())
+# @route('/api/music/play_time', method='GET')
+# def db():
+#     return pprint.pformat(DBAccess().get_music_list())
 
 # 各必要なstaticファイルパス
 @get("/static/css/<filepath:re:.*\.css>")
