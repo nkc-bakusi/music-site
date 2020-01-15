@@ -45,14 +45,14 @@ class DBAccess:
         return json.dumps({'data' : itmes_list})
 
     def get_music_list_bpm(self, bpm):
-        sql = 'SELECT id, song_name, artist_name, play_time FROM music '
-        if playtime == 1 :
-            sql.= 'WHERE bpm BETWEEN 0 and 49 '
-        else if playtime == 2 :
-            sql.= 'WHERE bpm BETWEEN 50 and 100 '
+        sql = 'SELECT id, song_name, artist_name, play_time, CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division, bpm FROM music '
+        if (bpm == '1') :
+            sql += 'WHERE bpm BETWEEN 0 and 49 '
+        elif (bpm == '2') :
+            sql += 'WHERE bpm BETWEEN 50 and 100 '
         else :
-            sql.= 'WHERE bpm > 100 '
-        sql.= 'ORDER BY RAND() LIMIT 10'
+            sql += 'WHERE bpm > 100 '
+        sql += 'ORDER BY RAND() LIMIT 10'
         cursor = self.connection.cursor()
         cursor.execute(sql)
         itmes_list = []
@@ -62,7 +62,8 @@ class DBAccess:
                 'song_name': row[1],
                 'artist_name': row[2],
                 'play_time': str(row[3]),
-                'bpm_division': row[4]
+                'bpm_division': row[4],
+                'bpm' : row[5]
             })
         return json.dumps({'data' : itmes_list})
 

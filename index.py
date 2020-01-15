@@ -20,8 +20,10 @@ def db():
     if (is_first_access == 'fast') :
         return DBAccess().get_music_list()
     elif (is_first_access == 'bpm') :
+        bpm = request.query.get('bpm')
         return DBAccess().get_music_list_bpm(bpm)
     elif (is_first_access == 'play_time') :
+        playtime = request.query.get('play_time')
         return DBAccess().get_music_list_playtime(playtime)
     else :
         return pprint.pformat(DBAccess().get_music_list())
