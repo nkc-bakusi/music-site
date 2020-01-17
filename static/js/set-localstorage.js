@@ -25,13 +25,13 @@ if (!search_data) {
             api_data.search_condition = 'bpm';
             api_data.bpm = search_data.bpm_division.indexOf(
                 (Math.max.apply(null, search_data.bpm_division))
-            );
+            ) + 1;
             break;
         case 1:
             api_data.search_condition = 'play_time';
             api_data.play_time = search_data.play_time_division.indexOf(
                 (Math.max.apply(null, search_data.play_time_division))
-            );
+            ) + 1;
             break;
     }
 }
