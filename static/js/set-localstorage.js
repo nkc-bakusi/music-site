@@ -23,14 +23,20 @@ if (!search_data) {
     switch (is_search_condition) {
         case 0:
             api_data.search_condition = 'bpm';
+            api_data.bpm = search_data.bpm_division.indexOf(
+                (Math.max.apply(null, search_data.bpm_division))
+            ) + 1;
             break;
         case 1:
             api_data.search_condition = 'play_time';
+            api_data.play_time = search_data.play_time_division.indexOf(
+                (Math.max.apply(null, search_data.play_time_division))
+            ) + 1;
             break;
     }
 }
 
-/**
+/**)
  * 指定された要素にクリックイベントを追加
  * @param target_dom
  * @param target_music_data
