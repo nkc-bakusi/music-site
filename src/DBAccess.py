@@ -38,22 +38,40 @@ class DBAccess:
         return json.dumps({'data': itmes_list})
 
     def get_music_list_playtime(self, playtime):
+        sql = 'SELECT id, song_name, artist_name, bpm, play_time, '\
+            'CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm '\
+            'BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division, '\
+            'CASE WHEN play_time BETWEEN \'00:00:00\' AND \'02:59:00\' THEN 1 WHEN play_time '\
+            'BETWEEN \'03:00:00\' AND \'03:59:00\' THEN 2 WHEN play_time > \'04:00:00\' THEN 3 END AS play_time_division '\
+            'FROM music '
+        if (playtime == '1'):
+            sql += 'WHERE play_time BETWEEN \'00:00:00\' AND \'02:59:00\' '
+        elif (playtime == '2'):
+            sql += 'WHERE play_time BETWEEN \'03:00:00\' AND \'03:59:00\' '
+        else:
+            sql += 'WHERE play_time > \'04:00:00\' '
         cursor = self.connection.cursor()
-        cursor.execute(
-            'SELECT id, song_name, artist_name, play_time, CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division FROM music ORDER BY RAND() LIMIT 10')
+        cursor.execute(sql)
         itmes_list = []
         for row in cursor:
             itmes_list.append({
                 'id': row[0],
                 'song_name': row[1],
                 'artist_name': row[2],
-                'play_time': str(row[3]),
-                'bpm_division': row[4]
+                'bpm': row[3],
+                'play_time': str(row[4]),
+                'bpm_division': row[5],
+                'play_time_division': row[6]
             })
         return json.dumps({'data': itmes_list})
 
     def get_music_list_bpm(self, bpm):
-        sql = 'SELECT id, song_name, artist_name, play_time, CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division, bpm FROM music '
+        sql = 'SELECT id, song_name, artist_name, bpm, play_time, '\
+            'CASE WHEN bpm BETWEEN 0 AND 50 THEN 1 WHEN bpm '\
+            'BETWEEN 50 AND 100 THEN 2 WHEN bpm > 100 THEN 3 END AS bpm_division, '\
+            'CASE WHEN play_time BETWEEN \'00:00:00\' AND \'02:59:00\' THEN 1 WHEN play_time '\
+            'BETWEEN \'03:00:00\' AND \'03:59:00\' THEN 2 WHEN play_time > \'04:00:00\' THEN 3 END AS play_time_division '\
+            'FROM music '
         if (bpm == '1'):
             sql += 'WHERE bpm BETWEEN 0 and 49 '
         elif (bpm == '2'):
@@ -69,9 +87,10 @@ class DBAccess:
                 'id': row[0],
                 'song_name': row[1],
                 'artist_name': row[2],
-                'play_time': str(row[3]),
-                'bpm_division': row[4],
-                'bpm': row[5]
+                'bpm': row[3],
+                'play_time': str(row[4]),
+                'bpm_division': row[5],
+                'play_time_division': row[6]
             })
         return json.dumps({'data': itmes_list})
 
