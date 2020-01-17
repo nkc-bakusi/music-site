@@ -38,6 +38,7 @@ if (!search_data) {
 function add_storage_event(target_dom, target_music_data) {
     $(target_dom).click(function (event) {
         search_data.bpm_division[target_music_data.bpm_division - 1]++;
+        search_data.play_time_division[target_music_data.play_time_division - 1]++;
         localStorage.setItem('search_data', JSON.stringify(search_data));
     });
 }
