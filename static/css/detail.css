@@ -1,10 +1,34 @@
 .soundCard {
+    color: #aaaaaa;
+    transition-duration:0.1s;
+    margin: auto 0.2em;
+    padding: 0.5em 0.2em;
+    border-bottom: solid 1px #aaaaaa;
+	overflow:hidden;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+    padding-left: 1.2em;
+
     /* background-color: white; */
     margin: 0 200px 0 200px;
     padding: 20px;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     border-style: solid;
-    pointer-events: none;
+    /* pointer-events: none; */
+}
+
+.soundCard button {
+    cursor: pointer;
+    background: none;
+    color: #aaaaaa;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.soundCard button:hover {
+    background-color: #444444;
+    color: #eeeeee;
 }
 
 .soundCard h2 {
