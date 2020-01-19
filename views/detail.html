@@ -6,8 +6,9 @@
     <title>Music Site GABAGABA</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="static/img/favicon.ico">
+    <link rel="icon" href="/static/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/detail.css">
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
 </head>
@@ -20,6 +21,32 @@
         <p>詳細画面</p>
     </div>
     <article>
+
+        <div class="soundCard song">
+            <table align="center">
+                <h2>曲名 : {{ music_data['song_name'] }}</h2>
+                <!-- <tr>
+                    <th>曲名</th>
+                    <td>{{ music_data['song_name'] }}</td>
+                </tr> -->
+                <tr>
+                    <th>BPM</th>
+                    <td>{{ music_data['bpm'] }} bpm</td>
+                </tr>
+                <tr>
+                    <th>曲名</th>
+                    <td>{{ music_data['artist_name'] }}</td>
+                </tr>
+                <tr>
+                    <th>アーティスト名</th>
+                    <td>{{ music_data['artist_name'] }}</td>
+                </tr>
+                <tr>
+                    <th>再生時間 </th>
+                    <td>{{ music_data['play_time'] }}</td>
+                </tr>
+            </table>
+        </div>
         <!-- <div id="songTitle" class="song">
             <span class="songName">曲名</span>
             <span class="songBPM">BPM</span>
