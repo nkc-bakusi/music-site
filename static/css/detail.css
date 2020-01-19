@@ -17,6 +17,10 @@
     /* pointer-events: none; */
 }
 
+.soundCard table {
+    margin-bottom: 30px;
+}
+
 .soundCard button {
     cursor: pointer;
     background: none;
@@ -29,6 +33,13 @@
 .soundCard button:hover {
     background-color: #444444;
     color: #eeeeee;
+}
+
+.soundCard audio {
+    vertical-align: middle;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
 .soundCard h2 {

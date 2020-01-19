@@ -42,10 +42,16 @@
                     <td>{{ music_data['artist_name'] }}</td>
                 </tr>
                 <tr>
+
                     <th>再生時間 </th>
                     <td>{{ music_data['play_time'] }}</td>
                 </tr>
             </table>
+
+            <audio controls>
+                <source src="/static/music/sample_music.mp3" type="audio/mp3">
+                音楽を再生できないようです。
+            </audio>
 
             <a class="activeLink" href="/">
                 <button>戻る</button>
