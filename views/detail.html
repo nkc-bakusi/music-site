@@ -1,9 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Music Site GABAGABA</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/detail.css">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
 </head>
+
 <body>
-    <script src="/static/js/detail.js"></script>
+    <header>
+        <h1>Music Site GABAGABA</h1>
+    </header>
+    <div id="greeting">
+        <p>詳細画面</p>
+    </div>
+    <article>
+
+        <div class="soundCard">
+            <table align="center">
+                <h2>曲名 : {{ music_data['song_name'] }}</h2>
+                <tr>
+                    <th>BPM</th>
+                    <td>{{ music_data['bpm'] }} bpm</td>
+                </tr>
+                <tr>
+                    <th>曲名</th>
+                    <td>{{ music_data['artist_name'] }}</td>
+                </tr>
+                <tr>
+                    <th>アーティスト名</th>
+                    <td>{{ music_data['artist_name'] }}</td>
+                </tr>
+                <tr>
+
+                    <th>再生時間 </th>
+                    <td>{{ music_data['play_time'] }}</td>
+                </tr>
+            </table>
+
+            <audio controls>
+                <source src="/static/music/sample_music.mp3" type="audio/mp3">
+                音楽を再生できないようです。
+            </audio>
+
+            <a class="activeLink" href="/">
+                <button>戻る</button>
+            </a>
+        </div>
+        <!-- <div id="songTitle" class="song">
+            <span class="songName">曲名</span>
+            <span class="songBPM">BPM</span>
+            <span class="songArtist">アーティスト名</span>
+            <span class="songLength">再生時間</span>
+        </div>
+        <div class="musicList">
+            <div class="song" >
+                <a href="">
+                    <span class="songName">{{music_data['song_name']}}</span>
+                    <span class="songBPM">{{music_data['bpm']}}</span>
+                    <span class="songArtist">{{music_data['artist_name']}}</span>
+                    <span class="songLength">{{music_data['play_time']}}</span>
+                </a>
+            </div>
+        </div> -->
+    </article>
+    <footer>
+        <small> &copy; 2020 Music Site GABAGABA</small>
+    </footer>
+
+    <!-- <script src="/static/js/set-localstorage.js"></script>
+    <script src="../static/js/index.js"></script> -->
 </body>
+
 </html>

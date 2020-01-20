@@ -1,0 +1,51 @@
+.soundCard {
+    color: #aaaaaa;
+    transition-duration:0.1s;
+    margin: auto 0.2em;
+    padding: 0.5em 0.2em;
+    border-bottom: solid 1px #aaaaaa;
+	overflow:hidden;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+    padding-left: 1.2em;
+
+    /* background-color: white; */
+    margin: 0 200px 0 200px;
+    padding: 20px;
+    border-radius: 20px;
+    border-style: solid;
+    /* pointer-events: none; */
+}
+
+.soundCard table {
+    margin-bottom: 30px;
+}
+
+.soundCard button {
+    cursor: pointer;
+    background: none;
+    color: #aaaaaa;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.soundCard button:hover {
+    background-color: #444444;
+    color: #eeeeee;
+}
+
+.soundCard audio {
+    vertical-align: middle;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.soundCard h2 {
+    margin: 0 0 0 20px;
+}
+
+.soundCard td {
+    padding: 0 0 0 30px;
+}

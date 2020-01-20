@@ -49,6 +49,10 @@ def js(filepath):
 def img(filepath):
     return static_file(filepath, root="static/img")
 
+@get("/static/music/<filepath:re:.*\.(mp3)>")
+def img(filepath):
+    return static_file(filepath, root="static/music")
+
 # 404ステータスの場合
 @error(404)
 def error404(error):
