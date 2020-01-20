@@ -96,8 +96,8 @@ class DBAccess:
 
     def get_detail_music(self, music_id):
         cursor = self.connection.cursor()
-        cursor.execute(
-            'SELECT id, song_name, artist_name, play_time, bpm FROM music WHERE id = %s', music_id)
+        sql = 'SELECT id, song_name, artist_name, play_time, bpm FROM music WHERE id=\'%s\'' % music_id
+        cursor.execute(sql)
         row = cursor.fetchone()
         itme_list = {
             'id': row[0],
